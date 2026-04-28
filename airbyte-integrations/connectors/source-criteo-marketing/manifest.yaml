@@ -24,16 +24,34 @@ definitions:
             {{ stream_interval.end_time if stream_interval is defined else
             (config.get('end_date') or now_utc().strftime('%Y-%m-%d')) }}
           metrics:
+            - Clicks
+            - Displays
+            - ViewableDisplays
             - AdvertiserCost
+            - ClickThroughRate
+            - Cpc
+            - ECpm
+            - Visits
+            - QualifiedVisits
+            - SalesClientAttribution
+            - RevenueGeneratedClientAttribution
+            - ConversionRateClientAttribution
+            - CostPerOrderClientAttribution
+            - RoasClientAttribution
           currency: "{{ config.currency }}"
           startDate: >-
             {{ stream_interval.start_time if stream_interval is defined else
             config['start_date'] }}
           dimensions:
-            - day
+            - Day
             - AdvertiserId
+            - Advertiser
             - CampaignId
-            - AdSetId
+            - Campaign
+            - AdsetId
+            - Adset
+            - AdId
+            - Ad
       authenticator:
         type: OAuthAuthenticator
         client_id: "{{ config[\"client_id\"] }}"
@@ -91,6 +109,8 @@ streams:
     primary_key:
       - AdvertiserId
       - CampaignId
+      - AdsetId
+      - AdId
       - Day
     schema_loader:
       type: InlineSchemaLoader
@@ -102,28 +122,30 @@ streams:
           - CampaignId
           - Day
         properties:
-          Day:
-            type: string
-          Campaign:
-            type:
-              - string
-              - "null"
-          Currency:
-            type:
-              - string
-              - "null"
-          Advertiser:
-            type:
-              - string
-              - "null"
-          CampaignId:
-            type: string
-          AdvertiserId:
-            type: string
-          AdvertiserCost:
-            type:
-              - string
-              - "null"
+          Day:                               { type: ["string", "null"] }
+          AdvertiserId:                      { type: ["string", "null"] }
+          Advertiser:                        { type: ["string", "null"] }
+          CampaignId:                        { type: ["string", "null"] }
+          Campaign:                          { type: ["string", "null"] }
+          AdsetId:                           { type: ["string", "null"] }
+          Adset:                             { type: ["string", "null"] }
+          AdId:                              { type: ["string", "null"] }
+          Ad:                                { type: ["string", "null"] }
+          Currency:                          { type: ["string", "null"] }
+          Clicks:                            { type: ["number", "null"] }
+          Displays:                          { type: ["number", "null"] }
+          ViewableDisplays:                  { type: ["number", "null"] }
+          AdvertiserCost:                    { type: ["number", "null"] }
+          ClickThroughRate:                  { type: ["number", "null"] }
+          Cpc:                               { type: ["number", "null"] }
+          ECpm:                              { type: ["number", "null"] }
+          Visits:                            { type: ["number", "null"] }
+          QualifiedVisits:                   { type: ["number", "null"] }
+          SalesClientAttribution:            { type: ["number", "null"] }
+          RevenueGeneratedClientAttribution: { type: ["number", "null"] }
+          ConversionRateClientAttribution:   { type: ["number", "null"] }
+          CostPerOrderClientAttribution:     { type: ["number", "null"] }
+          RoasClientAttribution:             { type: ["number", "null"] }
         additionalProperties: true
     transformations: []
     incremental_sync:
