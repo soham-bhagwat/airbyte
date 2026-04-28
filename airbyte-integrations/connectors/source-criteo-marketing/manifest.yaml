@@ -122,30 +122,102 @@ streams:
           - CampaignId
           - Day
         properties:
-          Day:                               { type: ["string", "null"] }
-          AdvertiserId:                      { type: ["string", "null"] }
-          Advertiser:                        { type: ["string", "null"] }
-          CampaignId:                        { type: ["string", "null"] }
-          Campaign:                          { type: ["string", "null"] }
-          AdsetId:                           { type: ["string", "null"] }
-          Adset:                             { type: ["string", "null"] }
-          AdId:                              { type: ["string", "null"] }
-          Ad:                                { type: ["string", "null"] }
-          Currency:                          { type: ["string", "null"] }
-          Clicks:                            { type: ["number", "null"] }
-          Displays:                          { type: ["number", "null"] }
-          ViewableDisplays:                  { type: ["number", "null"] }
-          AdvertiserCost:                    { type: ["number", "null"] }
-          ClickThroughRate:                  { type: ["number", "null"] }
-          Cpc:                               { type: ["number", "null"] }
-          ECpm:                              { type: ["number", "null"] }
-          Visits:                            { type: ["number", "null"] }
-          QualifiedVisits:                   { type: ["number", "null"] }
-          SalesClientAttribution:            { type: ["number", "null"] }
-          RevenueGeneratedClientAttribution: { type: ["number", "null"] }
-          ConversionRateClientAttribution:   { type: ["number", "null"] }
-          CostPerOrderClientAttribution:     { type: ["number", "null"] }
-          RoasClientAttribution:             { type: ["number", "null"] }
+          Day:
+            type:
+              - "null"
+              - string
+          AdvertiserId:
+            type:
+              - "null"
+              - string
+          Advertiser:
+            type:
+              - "null"
+              - string
+          CampaignId:
+            type:
+              - "null"
+              - string
+          Campaign:
+            type:
+              - "null"
+              - string
+          AdsetId:
+            type:
+              - "null"
+              - string
+          Adset:
+            type:
+              - "null"
+              - string
+          AdId:
+            type:
+              - "null"
+              - string
+          Ad:
+            type:
+              - "null"
+              - string
+          Currency:
+            type:
+              - "null"
+              - string
+          Clicks:
+            type:
+              - "null"
+              - number
+          Displays:
+            type:
+              - "null"
+              - number
+          ViewableDisplays:
+            type:
+              - "null"
+              - number
+          AdvertiserCost:
+            type:
+              - "null"
+              - number
+          ClickThroughRate:
+            type:
+              - "null"
+              - number
+          Cpc:
+            type:
+              - "null"
+              - number
+          ECpm:
+            type:
+              - "null"
+              - number
+          Visits:
+            type:
+              - "null"
+              - number
+          QualifiedVisits:
+            type:
+              - "null"
+              - number
+          SalesClientAttribution:
+            type:
+              - "null"
+              - number
+          RevenueGeneratedClientAttribution:
+            type:
+              - "null"
+              - number
+          ConversionRateClientAttribution:
+            type:
+              - "null"
+              - number
+          CostPerOrderClientAttribution:
+            type:
+              - "null"
+              - number
+          RoasClientAttribution:
+            type:
+              - "null"
+              - number
         additionalProperties: true
     transformations: []
     incremental_sync:
